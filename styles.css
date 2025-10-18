@@ -128,6 +128,63 @@ header {
   background: rgba(255,255,255,0.15);
 }
 
+/* Modal */
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: rgba(25,25,25,0.85);
+  backdrop-filter: blur(12px);
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 320px;
+  color: #fff;
+  text-align: center;
+}
+
+.modal input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  margin: 8px 0;
+  outline: none;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+.btn-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.btn-row button {
+  background: #b95dd8;
+  border: none;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-row button:first-child {
+  background: #666;
+}
+
+.btn-row button:hover {
+  opacity: 0.85;
+}
+
 /* Footer */
 footer {
   padding: 25px 10px;
