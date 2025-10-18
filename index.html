@@ -1,40 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kairo Wynn | Wattpad Stories</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kairo Wynn — Wattpad Stories</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
     <h1>Kairo Wynn</h1>
-    <p class="tagline">Stories that glow beyond worlds ✨</p>
+    <p class="tag">Stories that glow beyond worlds ✨</p>
   </header>
 
-  <section class="stories">
-    <div class="story-card">
-      <img src="T.d.l.S.jpeg" alt="The Dream of Light and Shadow Cover" />
-      <h2>The Dream of Light and Shadow</h2>
-      <p>An epic fantasy tale about balance, fate, and the bond between light and darkness.</p>
-      <a href="https://www.wattpad.com/story/402730375" target="_blank">Read on Wattpad</a>
+  <main class="container">
+    <div id="grid" class="grid" aria-live="polite"></div>
+  </main>
+
+  <!-- gear + menu -->
+  <div class="gear-wrap" aria-hidden="false">
+    <div id="menuSheet" class="menu-sheet" role="dialog" aria-hidden="true">
+      <h4>Settings</h4>
+      <p class="muted">Admin controls, add stories, import/export, and settings.</p>
+      <div class="menu-actions" id="menuActions">
+        <div id="btnLogin" class="small">Admin Login</div>
+        <div id="btnAddMine" class="small" style="display:none">Add My Story</div>
+        <div id="btnAddFriend" class="small" style="display:none">Add Friend's Story</div>
+        <div id="btnExport" class="small" style="display:none">Export Stories (.json)</div>
+        <label for="importFile" class="small" id="btnImport" style="display:none; cursor:pointer">Import Stories (.json)</label>
+        <input id="importFile" type="file" accept="application/json" style="display:none"/>
+        <div id="btnLogout" class="small" style="display:none">Logout</div>
+        <div id="btnReset" class="small">Reset Local Data</div>
+      </div>
+      <p class="hint">Tip: changes save locally in your browser only. Export to back up.</p>
     </div>
 
-    <div class="story-card">
-      <img src="W.W.A.jpeg" alt="We Were Almost Cover" />
-      <h2>We Were Almost</h2>
-      <p>A heartfelt romance about what could’ve been — love, loss, and bittersweet memories.</p>
-      <a href="https://www.wattpad.com/story/402956793" target="_blank">Read on Wattpad</a>
+    <div class="gear" id="gearBtn" title="Open settings">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06A2 2 0 1 1 2.3 17.88l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82L4.3 3.3A2 2 0 1 1 7.13.47l.06.06a1.65 1.65 0 0 0 1.82.33h.09A1.65 1.65 0 0 0 11.2 1.36V1a2 2 0 1 1 4 0v.36c.12.07.24.15.35.24.35.31.8.35 1.17.12l.06-.06A2 2 0 1 1 21.7 6.12l-.06.06a1.65 1.65 0 0 0-.33 1.82v.09c.09.37.04.81-.27 1.1z"></path>
+      </svg>
     </div>
+  </div>
 
-    <div class="story-card">
-      <img src="Poem.png" alt="Poem of Human Emotions Cover" />
-      <h2>Poem of Human Emotions</h2>
-      <p>A deep poetic collection exploring pain, love, hope, and the fragile beauty of being human.</p>
-      <a href="https://www.wattpad.com/story/402854597" target="_blank">Read on Wattpad</a>
-    </div>
-  </section>
+  <!-- modal backdrop for login / add / edit / confirm -->
+  <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" id="modalContent"></div>
+  </div>
 
+  <script src="app.js"></script>
+</body>
+</html>
   <footer>
     <p>© 2025 Kairo Wynn | Made with 🌌 imagination and passion</p>
   </footer>
