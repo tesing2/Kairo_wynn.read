@@ -14,32 +14,31 @@
 
   <main class="container">
     <div id="grid" class="grid" aria-live="polite">
-      <!-- Example story cards -->
       <div class="story-card">
         <img src="Poem.png" alt="Poem of Human Emotions" />
         <h2>Poem of Human Emotions</h2>
         <p>A poetic collection exploring pain, love, hope, and the fragile beauty of being human.</p>
-        <a href="#" class="btn">Read on Wattpad</a>
+        <a href="https://www.wattpad.com/story/402854597" target="_blank" class="btn">Read on Wattpad</a>
       </div>
 
       <div class="story-card">
-        <img src="W.W.A.jpeg" alt="When Worlds Align" />
-        <h2>When Worlds Align</h2>
-        <p>A cosmic love story where fate and starlight intertwine.</p>
-        <a href="#" class="btn">Read on Wattpad</a>
+        <img src="W.W.A.jpeg" alt="We Were Almost" />
+        <h2>We Were Almost</h2>
+        <p>A bittersweet story about love that almost was — and the dreams that never met the light.</p>
+        <a href="https://www.wattpad.com/story/402956793" target="_blank" class="btn">Read on Wattpad</a>
       </div>
 
       <div class="story-card">
         <img src="T.d.l.S.jpeg" alt="The Dream of Light and Shadow" />
         <h2>The Dream of Light and Shadow</h2>
         <p>An epic fantasy of light, darkness, and destiny reborn.</p>
-        <a href="#" class="btn">Read on Wattpad</a>
+        <a href="https://www.wattpad.com/story/402730375" target="_blank" class="btn">Read on Wattpad</a>
       </div>
     </div>
   </main>
 
-  <!-- Gear menu -->
-  <div class="gear-wrap" aria-hidden="false">
+  <!-- Gear + Menu -->
+  <div class="gear-wrap">
     <div id="menuSheet" class="menu-sheet" aria-hidden="true">
       <button id="btnLogin" class="menu-item">🔑 Admin Login</button>
       <button id="btnAddMine" class="menu-item" style="display:none;">📖 Add My Story</button>
@@ -58,9 +57,9 @@
     </div>
   </div>
 
-  <!-- Modal backdrop for login -->
+  <!-- Modal -->
   <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" id="modalContent"></div>
+    <div class="modal" id="modalContent"></div>
   </div>
 
   <footer>
@@ -68,13 +67,56 @@
   </footer>
 
   <script>
-    // Toggle gear settings
     const gearBtn = document.getElementById('gearBtn');
     const menuSheet = document.getElementById('menuSheet');
+    const modalBackdrop = document.getElementById('modalBackdrop');
+    const modalContent = document.getElementById('modalContent');
+
+    const loginBtn = document.getElementById('btnLogin');
+    const addMine = document.getElementById('btnAddMine');
+    const addFriend = document.getElementById('btnAddFriend');
+    const exportBtn = document.getElementById('btnExport');
+    const importBtn = document.getElementById('btnImport');
+    const logoutBtn = document.getElementById('btnLogout');
+
+    let loggedIn = false;
+
     gearBtn.addEventListener('click', () => {
       menuSheet.classList.toggle('open');
-      const isOpen = menuSheet.classList.contains('open');
-      menuSheet.setAttribute('aria-hidden', !isOpen);
+    });
+
+    loginBtn.addEventListener('click', () => {
+      modalBackdrop.style.display = 'flex';
+      modalContent.innerHTML = `
+        <h2>Admin Login</h2>
+        <input id="user" type="text" placeholder="Username">
+        <input id="pass" type="password" placeholder="Password">
+        <div class="btn-row">
+          <button id="cancelLogin">Cancel</button>
+          <button id="confirmLogin">Login</button>
+        </div>
+      `;
+      document.getElementById('cancelLogin').onclick = () => modalBackdrop.style.display = 'none';
+      document.getElementById('confirmLogin').onclick = () => {
+        const u = document.getElementById('user').value.trim();
+        const p = document.getElementById('pass').value.trim();
+        if (u === 'kairo' && p === 'kairoadmin2') {
+          loggedIn = true;
+          addMine.style.display = addFriend.style.display = exportBtn.style.display = importBtn.style.display = logoutBtn.style.display = 'block';
+          loginBtn.style.display = 'none';
+          modalBackdrop.style.display = 'none';
+          alert('Welcome back, Kairo 🌙');
+        } else {
+          alert('Invalid credentials!');
+        }
+      };
+    });
+
+    logoutBtn.addEventListener('click', () => {
+      loggedIn = false;
+      loginBtn.style.display = 'block';
+      addMine.style.display = addFriend.style.display = exportBtn.style.display = importBtn.style.display = logoutBtn.style.display = 'none';
+      alert('Logged out successfully.');
     });
   </script>
 </body>
