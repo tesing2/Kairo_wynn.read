@@ -13,25 +13,41 @@
   </header>
 
   <main class="container">
-    <div id="grid" class="grid" aria-live="polite"></div>
+    <div id="grid" class="grid" aria-live="polite">
+      <!-- Example story cards -->
+      <div class="story-card">
+        <img src="Poem.png" alt="Poem of Human Emotions" />
+        <h2>Poem of Human Emotions</h2>
+        <p>A poetic collection exploring pain, love, hope, and the fragile beauty of being human.</p>
+        <a href="#" class="btn">Read on Wattpad</a>
+      </div>
+
+      <div class="story-card">
+        <img src="W.W.A.jpeg" alt="When Worlds Align" />
+        <h2>When Worlds Align</h2>
+        <p>A cosmic love story where fate and starlight intertwine.</p>
+        <a href="#" class="btn">Read on Wattpad</a>
+      </div>
+
+      <div class="story-card">
+        <img src="T.d.l.S.jpeg" alt="The Dream of Light and Shadow" />
+        <h2>The Dream of Light and Shadow</h2>
+        <p>An epic fantasy of light, darkness, and destiny reborn.</p>
+        <a href="#" class="btn">Read on Wattpad</a>
+      </div>
+    </div>
   </main>
 
-  <!-- gear + menu -->
+  <!-- Gear menu -->
   <div class="gear-wrap" aria-hidden="false">
-    <div id="menuSheet" class="menu-sheet" role="dialog" aria-hidden="true">
-      <h4>Settings</h4>
-      <p class="muted">Admin controls, add stories, import/export, and settings.</p>
-      <div class="menu-actions" id="menuActions">
-        <div id="btnLogin" class="small">Admin Login</div>
-        <div id="btnAddMine" class="small" style="display:none">Add My Story</div>
-        <div id="btnAddFriend" class="small" style="display:none">Add Friend's Story</div>
-        <div id="btnExport" class="small" style="display:none">Export Stories (.json)</div>
-        <label for="importFile" class="small" id="btnImport" style="display:none; cursor:pointer">Import Stories (.json)</label>
-        <input id="importFile" type="file" accept="application/json" style="display:none"/>
-        <div id="btnLogout" class="small" style="display:none">Logout</div>
-        <div id="btnReset" class="small">Reset Local Data</div>
-      </div>
-      <p class="hint">Tip: changes save locally in your browser only. Export to back up.</p>
+    <div id="menuSheet" class="menu-sheet" aria-hidden="true">
+      <button id="btnLogin" class="menu-item">🔑 Admin Login</button>
+      <button id="btnAddMine" class="menu-item" style="display:none;">📖 Add My Story</button>
+      <button id="btnAddFriend" class="menu-item" style="display:none;">🤝 Add Friend’s Story</button>
+      <button id="btnExport" class="menu-item" style="display:none;">📤 Export Stories</button>
+      <button id="btnImport" class="menu-item" style="display:none;">📥 Import Stories</button>
+      <input type="file" id="importFile" accept="application/json" style="display:none" />
+      <button id="btnLogout" class="menu-item" style="display:none;">🚪 Logout</button>
     </div>
 
     <div class="gear" id="gearBtn" title="Open settings">
@@ -42,16 +58,24 @@
     </div>
   </div>
 
-  <!-- modal backdrop for login / add / edit / confirm -->
+  <!-- Modal backdrop for login -->
   <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" id="modalContent"></div>
   </div>
 
-  <script src="app.js"></script>
-</body>
-</html>
   <footer>
     <p>© 2025 Kairo Wynn | Made with 🌌 imagination and passion</p>
   </footer>
+
+  <script>
+    // Toggle gear settings
+    const gearBtn = document.getElementById('gearBtn');
+    const menuSheet = document.getElementById('menuSheet');
+    gearBtn.addEventListener('click', () => {
+      menuSheet.classList.toggle('open');
+      const isOpen = menuSheet.classList.contains('open');
+      menuSheet.setAttribute('aria-hidden', !isOpen);
+    });
+  </script>
 </body>
 </html>
