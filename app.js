@@ -10,7 +10,7 @@ function placeholderDataURI(){
   return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
 }
 const DEFAULT_STORIES = [
-  { id: genId(), title:'The Dream of Light and Shadow', author:'Kairo_Wynn', desc:'An epic fantasy about balance, fate, and the bond between light and darkness.', coverPath:'T.D.L.S.jpeg', link:'https://www.wattpad.com/story/402730375', category:'mine' },
+  { id: genId(), title:'The Dream of Light and Shadow', author:'Kairo_Wynn', desc:'An epic fantasy about balance, fate, and the bond between light and darkness.', coverPath:'T.d.l.S.jpeg', link:'https://www.wattpad.com/story/402730375', category:'mine' },
   { id: genId(), title:'We Were Almost', author:'Kairo_Wynn', desc:'A heartfelt romance about what could’ve been — love, loss, and bittersweet memories.', coverPath:'W.W.A.jpeg', link:'https://www.wattpad.com/story/402956793', category:'mine' },
   { id: genId(), title:'Poem of Human Emotions', author:'Kairo_Wynn', desc:'A poetic collection exploring pain, love, hope, and the fragile beauty of being human.', coverPath:'Poem.png', link:'https://www.wattpad.com/story/402854597', category:'mine' }
 ];
